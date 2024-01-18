@@ -1,0 +1,21 @@
+/**=====================
+    17. Print CSS Start
+==========================**/
+@media print {
+.page-wrapper {
+    .page-title {
+      visibility: hidden;
+    }
+    .page-body-wrapper {
+      .page-title {
+        display: none;
+      }
+    }
+  }
+  table.fixedHeader-floating {
+    display: none;
+  }
+}
+/**=====================
+    17. Print CSS Ends
+==========================**/

@@ -1,0 +1,42 @@
+import React from 'react';
+import { Card, CardBody, Col } from 'reactstrap';
+import { Image, LI, UL } from '../../../AbstractElements';
+import { Groups } from '../../../Constant';
+import HeaderCard from '../../Common/Component/HeaderCard';
+
+const GroupCard = () => {
+  return (
+    <Col lg="6">
+      <Card>
+        <HeaderCard title={Groups} />
+        <CardBody>
+          <div className="avatar-showcase">
+            <div className="customers d-inline-block avatar-group">
+              <UL attrUL={{ as: 'ul', className: 'simple-list' }}>
+                <LI attrLI={{ className: 'd-inline-block' }} ><Image attrImage={{ body: true, className: 'img-70 rounded-circle', src: `${require('../../../assets/images/user/3.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-70 rounded-circle', src: `${require('../../../assets/images/user/5.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-70 rounded-circle', src: `${require('../../../assets/images/user/1.jpg')}`, alt: '' }} /></LI>
+              </UL>
+            </div>
+            <div className="customers d-inline-block avatar-group">
+              <UL attrUL={{ as: 'ul', className: 'simple-list' }}>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-50 rounded-circle', src: `${require('../../../assets/images/user/3.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-50 rounded-circle', src: `${require('../../../assets/images/user/5.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-50 rounded-circle', src: `${require('../../../assets/images/user/1.jpg')}`, alt: '' }} /></LI>
+              </UL>
+            </div>
+            <div className="customers d-inline-block avatar-group">
+              <UL attrUL={{ as: 'ul', className: 'simple-list' }}>
+                <LI attrLI={{ className: 'd-inline-block' }} ><Image attrImage={{ body: true, className: 'img-40 rounded-circle', src: `${require('../../../assets/images/user/3.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-40 rounded-circle', src: `${require('../../../assets/images/user/5.jpg')}`, alt: '' }} /></LI>
+                <LI attrLI={{ className: 'd-inline-block' }}><Image attrImage={{ body: true, className: 'img-40 rounded-circle', src: `${require('../../../assets/images/user/1.jpg')}`, alt: '' }} /></LI>
+              </UL>
+            </div>
+          </div>
+        </CardBody>
+      </Card>
+    </Col>
+  );
+};
+
+export default GroupCard;

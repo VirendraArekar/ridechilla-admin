@@ -1,0 +1,168 @@
+/*! -----------------------------------------------------------------------------------
+
+    Template Name: Koho Admin
+    Template URI: http://admin.pixelstrap.com/koho/theme
+    Description: This is Admin theme
+    Author: Pixelstrap
+    Author URI: https://themeforest.net/user/pixelstrap
+
+-----------------------------------------------------------------------------------
+01. Reset CSS
+02. Typography CSS
+03. According CSS
+04. Alert CSS
+05. Avatar CSS
+06. Badge CSS
+07. Breadcrumb CSS
+08. Buttons page CSS
+09. Card css
+10. Dropdown CSS
+11. Form input CSS
+12. Form wizard  CSS
+13. Forms CSS
+14. Icons CSS
+15. List CSS
+16. Loader  CSS
+17. Print CSS
+18. Radio  CSS
+19. React plugin CSS
+20. Ribbons CSS
+21. Scrollbar CSS
+22. Select2 CSS
+23. Switch CSS
+24. Tab CSS
+25. Table CSS
+26. Touchspin CSS
+27. Typeahead search CSS
+28. Box Layout CSS
+29. Footer CSS
+30. Grid CSS
+31. Header CSS
+32. Navs CSS
+33. Search css
+34. Sidebar CSS
+35. Blog CSS
+36. Bookmark app CSS
+37. Cart  CSS
+38. Chart Manager
+39. Checkout CSS
+40. Commigsoon CSS
+41. Contacts CSS
+42. Dashboard 2 CSS
+43. Dashboard default CSS
+44. Ecommerce CSS
+45. Email application CSS
+46. Error page CSS
+47. Faq CSS
+48. File CSS
+49. Gallery CSS
+50. General widget CSS
+51. Invoice CSS
+52. Job search CSS
+54. Knowledgebase CSS
+55. Language CSS
+56. Learning CSS
+57. Login CSS
+58. Megaoption CSS
+59. Order history css
+60. Page css
+61. Pricing css
+62. Progress CSS
+63. Project List CSS
+64. Social app CSS
+65. Task CSS
+66. User Profile CSS
+67. Auth Login CSS
+68. Dark CSS
+69. Responsive CSS
+70. RTL css
+71. Print CSS
+72. Theme customizer CSS
+73. Update CSS
+ */
+// *** utils ***
+@import "./utils/_variables.scss";
+@import "./utils/_theme-font.scss";
+
+:root {
+    --theme-default: #534686;
+    --theme-secondary: #FFA47A;
+}
+// *** base ***
+@import "./base/_reset.scss";
+@import "./base/_typography.scss";
+//  *** components ***
+@import "./components/_according.scss";
+@import "./components/_alert.scss";
+@import "./components/_avatars.scss";
+@import "./components/_badge.scss";
+@import "./components/_breadcrumb.scss";
+@import "./components/_buttons.scss";
+@import "./components/_card.scss";
+@import "./components/_dropdown.scss";
+@import "./components/_form-input.scss";
+@import "./components/_form-wizard.scss";
+@import "./components/_forms.scss";
+@import "./components/_icons.scss";
+@import "./components/_list.scss";
+@import "./components/_loader.scss";
+@import "./components/_print.scss";
+@import "./components/_radio.scss";
+@import "./components/_ribbon.scss";
+@import "./components/_select2.scss";
+@import "./components/_switch.scss";
+@import "./components/_tab.scss";
+@import "./components/_table.scss";
+@import "./components/_touchspin.scss";
+@import "./components/_typeahead-search.scss";
+@import "./components/_scrollbar.scss";
+@import "./components/react-plugin";
+//	*** pages ***
+@import "./pages/_blog.scss";
+@import "./pages/_bookmark-app.scss";
+@import "./pages/_cart.scss";
+@import "./pages/_chart.scss";
+@import "./pages/_chat.scss";
+@import "./pages/_checkout.scss";
+@import "./pages/_comingsoon.scss";
+@import "./pages/_contacts.scss";
+@import "./pages/_dashboard_default.scss";
+@import "./pages/_dashboard_2.scss";
+@import "./pages/_general-widget.scss";
+@import "./pages/_ecommerce.scss";
+@import "./pages/_email-application.scss";
+@import "./pages/_errorpage.scss";
+@import "./pages/_faq.scss";
+@import "./pages/_file.scss";
+@import "./pages/_gallery.scss";
+@import "./pages/_job-search.scss";
+@import "./pages/_knowledgebase.scss";
+@import "./pages/_language.scss";
+@import "./pages/_learning.scss";
+@import "./pages/_login.scss";
+@import "./pages/_megaoption.scss";
+@import "./pages/_order-history.scss";
+@import "./pages/_page.scss";
+@import "./pages/_pricing.scss";
+@import "./pages/_progress.scss";
+@import "./pages/_projectlist.scss";
+@import "./pages/_social-app.scss";
+@import "./pages/_task.scss";
+@import "./pages/_user-profile.scss";
+@import "./pages/_invoice.scss";
+// *** layout *** 
+@import "./layout/_footer.scss";
+@import "./layout/_grid.scss";
+@import "./layout/_header.scss";
+@import "./layout/_navs.scss";
+@import "./layout/_search.scss";
+@import "./layout/_sidebar.scss";
+@import "./layout/_box-layout.scss";
+/* ---------------------
+	*** themes ***
+-----------------------*/
+@import "./themes/_authLogin.scss";
+@import "./themes/_dark.scss";
+@import "./themes/_rtl.scss";
+@import "./themes/_theme-customizer.scss";
+@import "./themes/_update.scss";

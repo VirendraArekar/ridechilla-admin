@@ -1,0 +1,25 @@
+import React, { Fragment } from 'react';
+import { H5, H6, Image } from '../../../../AbstractElements';
+import { EmayWalter } from '../../../../Constant';
+import { Link } from 'react-router-dom';
+
+const PostHeader = ({ h6 }) => {
+    return (
+        <Fragment>
+            <div className="post-header">
+                <div className="d-flex">
+                    <Image attrImage={{ className: 'img-thumbnail rounded-circle me-3', src: `${require('../../../../assets/images/user/7.jpg')}`, alt: 'Generic placeholder image' }} />
+                    <div className="media-body align-self-center">
+                    <Link to={`${process.env.PUBLIC_URL}/app/social-app`}>
+                        <H5 attrH5={{ className: 'user-name' }} >{EmayWalter}</H5>
+                    </Link>
+                    <H6>{h6}</H6>
+                    </div>
+                </div>
+                <div className="post-setting"><i className="fa fa-ellipsis-h"></i></div>
+            </div>
+        </Fragment>
+    );
+};
+
+export default PostHeader;

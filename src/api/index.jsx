@@ -1,0 +1,25 @@
+const api = `${process.env.PUBLIC_URL}/api`;
+
+export const TaskApi = `${api}/task.json`;
+export const BookmarkApi = `${api}/bookmark.json`;
+export const ChartistApi = `${api}/chartistData.json`;
+export const ChartjsApi = `${api}/chartjsData.json`;
+export const ChatMemberApi = `${api}/chatMember.json`;
+export const ChatApi = `${api}/chats.json`;
+export const ContactApi = `${api}/contacts.json`;
+export const ProductsApi = `${api}/product.json`;
+export const EmailApi = `${api}/email.json`;
+export const ImageLightApi = `${api}/image-light.json`;
+export const BigImageApi = `${api}/image-big-light.json`;
+export const MasonryApi = `${api}/masonry.json`;
+export const GooglechartApi = `${api}/googleChartData.json`;
+export const AllProjectApi = `${api}/allProject.json`;
+export const SearchAllTabsApi = `${api}/searchAllTabs.json`;
+export const TableDataApi = `${api}/tableData.json`;
+export const TodoApi = `${api}/todo.json`;
+export const DefaultboardApi = `${api}/defaultboard.json`;
+export const CustomboardApi = `${api}/customboard.json`;
+export const JobSearchApi = `${api}/jobSearch.json`;
+export const LearningApi = `${api}/learning.json`;
+export const KnowledgebaseApi = `${api}/knowledgebaseDB.json`;
+export const FaqApi = `${api}/Faq.json`;

@@ -1,0 +1,229 @@
+/**=====================
+    27. typahead-search  CSS Start
+==========================**/
+.Typeahead {
+  width: 100%;
+  * {
+    box-sizing: border-box;
+    &:before {
+      box-sizing: border-box;
+    }
+    &:after {
+      box-sizing: border-box;
+    }
+  }
+  .tt-hint {
+    display: none !important;
+  }
+}
+.u-cf {
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+.u-hidden {
+  display: none !important;
+}
+.u-posRelative {
+  position: relative;
+}
+.Typeahead-spinner {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  display: none;
+  color: #c5c5c5;
+}
+.ProfileCard-avatar {
+  svg {
+    height: 18px;
+    vertical-align: bottom;
+    path {
+      color: #7e7c7c !important;
+    }
+    polygon {
+      color: #7e7c7c !important;
+    }
+  }
+}
+.Typeahead-hint {
+  width: 100%;
+  padding: 5px 8px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 1px solid #024e6a;
+  border-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccd6dd;
+  opacity: 1;
+}
+.Typeahead-menu {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  padding: 15px;
+  z-index: 100;
+  display: none;
+  width: 100%;
+  background-color: $white;
+  .ProfileCard {
+    padding: 0 !important;
+    border: none !important;
+  }
+  &.filled-bookmark {
+    max-height: 100px;
+    overflow: auto;
+  }
+}
+.Typeahead-menu.is-open {
+  display: block;
+}
+.Typeahead-selectable {
+  cursor: pointer;
+  + {
+    .Typeahead-selectable {
+      border-top: 1px solid #ccd6dd;
+    }
+  }
+}
+.ProfileCard {
+  position: relative;
+  padding: 10px;
+  border: 1px solid $gray-60 !important;
+  margin-bottom: 0;
+  border-radius: 10px;
+  &:hover {
+    .ProfileCard-avatar {
+      border-color: #f5f8fa;
+    }
+    color: $primary-color;
+    background: #f8f8f8;
+    .ProfileCard-realName{
+      i.icon-star{
+        color: $primary-color;
+      }
+      .realname{
+        color: $primary-color;
+        svg{
+          stroke: $primary-color;
+        }
+      }
+    } 
+    .ProfileCard-screenName {
+      color: $white;
+    }
+    .ProfileCard-stat-label {
+      color: $white;
+    }
+  }
+}
+.ProfileCard-avatar {
+  position: absolute;
+  border-radius: 5px;
+}
+.ProfileCard-details {
+  padding-left: 0;
+  float: left;
+  width: 100%;
+}
+.ProfileCard-realName {
+  display: flex;
+  color: $dark-gray;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 6px;
+  i.icon-star.starred {
+    color: #ff8819;
+  }
+  i.icon-star{
+    color: $theme-body-font-color;
+  }
+  .realname {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    color: $theme-body-font-color;
+    svg {
+      position: relative !important;
+      width: 18px !important;
+      height: 18px !important;
+      top: unset !important;
+      opacity: 1 !important;
+      margin-right: 10px;
+      margin-bottom: 0;
+    }
+  }
+}
+.header-wrapper {
+  .realname {
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+  .Typeahead-menu {
+    max-height: 300px;
+    overflow: auto;
+  }
+}
+.ProfileCard-screenName {
+  display: inline-block;
+  color: $dark-gray;
+}
+.ProfileCard-description {
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 18px;
+}
+.ProfileCard-stats {
+  float: right;
+  text-align: right;
+}
+.ProfileCard-stat {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+  + {
+    .ProfileCard-stat {
+      margin-left: 5px;
+    }
+  }
+}
+.ProfileCard-stat-label {
+  color: $dark-gray;
+  font-weight: 500;
+}
+.ProfileCard.is-active {
+  color: $white;
+  background: var(--theme-default);
+  .ProfileCard-screenName {
+    color: $white;
+  }
+  .ProfileCard-stat-label {
+    color: $white;
+  }
+}
+.EmptyMessage {
+  position: relative;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+}
+.Typeahead-spinner {
+  width: 1rem;
+  height: 1rem;
+}
+/**=====================
+  27. typahead-search CSS Ends
+==========================**/

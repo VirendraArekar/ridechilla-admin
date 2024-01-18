@@ -1,0 +1,70 @@
+@import "~bootstrap-scss/bootstrap.scss";
+@import 'vendors/font-awesome.scss';
+@import 'vendors/icofont.scss';
+@import 'vendors/flag-icon.scss';
+@import 'vendors/themify.scss';
+// @import 'vendors/feather-icon.scss';
+@import 'vendors/whether-icon.scss';
+@import 'vendors/animate/_animate.scss';
+@import 'vendors/sticky/_sticky.scss';
+@import 'vendors/chartist/_chartist.scss';
+@import "vendors/scrollbar.scss";
+@import 'vendors/scrollable.scss';
+// @import 'vendors/date-picker.scss';
+@import 'vendors/todo/_todo.scss';
+
+// ReactToastify
+@import "~react-toastify/dist/ReactToastify.css";
+
+// Drag&Drop
+@import "~react-dragula/dist/dragula.css";
+
+//Dropzone
+@import '~react-dropzone-uploader/dist/styles.css';
+
+//LeafLet
+@import "~leaflet/dist/leaflet.css";
+
+//  ImageCrop
+@import "~react-image-crop/dist/ReactCrop.css";
+
+//  Timeline
+@import "~react-vertical-timeline-component/style.min.css";
+
+// Datepicker
+@import "react-datepicker/dist/react-datepicker.css";
+
+// typeahead  page  
+@import 'react-bootstrap-typeahead/css/Typeahead.css';
+
+//slick-slider carousal
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+// Timepicker
+// @import "~react-times/css/material/default.css";
+// @import "~react-times/css/classic/default.css";
+
+//  calendar
+@import "~@fullcalendar/daygrid/main.css";
+@import "~react-big-calendar/lib/css/react-big-calendar.css";
+
+// Image gallery
+@import 'photoswipe/dist/photoswipe.css';
+@import 'vendors/photoswipe.scss';
+
+// Mde EDitor
+@import "~easymde/dist/easymde.min.css";
+
+//react-Clock 
+@import 'react-clock/dist/Clock.css';
+//LeafLet
+// @import '~leaflet/dist/leaflet.css';
+
+// custom scrollbar
+// @import 'simplebar-react/dist/simplebar.min.css';
+
+// All styles
+@import './style.scss';
+// Responsive styles
+@import './responsive.scss';
