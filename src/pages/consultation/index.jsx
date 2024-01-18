@@ -23,7 +23,7 @@ const Live = (props) => {
     const [id, setId] = useState(0)
 
     const editLive = (id) => {
-        navigate(`${process.env.PUBLIC_URL}/live-consultation/add-edit`, {state : {eventId : id}});
+        navigate(`${process.env.PUBLIC_URL}/live-consultation/add-edit`, {state : {liveId : id}});
     }
 
     const deleteLive = (id) => {

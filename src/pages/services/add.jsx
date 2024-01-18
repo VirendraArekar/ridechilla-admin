@@ -92,7 +92,9 @@ export default function add() {
                 navigate,
                 toast,
             }
-            dispatch(createService(finalData))
+            dispatch(createService(finalData,(err) => {
+                console.log('ERROR --------------', err)
+            }))
         }
     }
  }

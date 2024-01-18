@@ -6,7 +6,6 @@ import axios  from "axios";
 export const createEvent = createAsyncThunk(
   "createEvent",
   async ({ data, navigate, toast }, { rejectWithValue }) => {
-    console.log('DATA =-------------', data)
     try {
       const response = await API.post("/user/events", data);
       toast.success("Added Successfully");

@@ -190,7 +190,13 @@ import EventAddEdit from '../pages/event/add';
 import Service from '../pages/services';
 import ServiceAddEdit from '../pages/services/add';
 import Live from '../pages/consultation';
-import LiveAddEdit from '../pages/consultation/add'
+import LiveAddEdit from '../pages/consultation/add';
+import Notification from '../pages/notification';
+import NotificationAddEdit from '../pages/notification/add';
+import Transaction from '../pages/transactions';
+import UserSetting from '../pages/user/setting';
+import UserPayment from '../pages/user/payment';
+import Offer from '../pages/offer';
 
 export const routes = [
         //dashboard
@@ -217,6 +223,21 @@ export const routes = [
         // live consultation
         { path: `${process.env.PUBLIC_URL}/live-consultations/`, Component: <Live /> },
         { path: `${process.env.PUBLIC_URL}/live-consultation/add-edit`, Component: <LiveAddEdit /> },
+
+        // Notification
+        { path: `${process.env.PUBLIC_URL}/notifications/`, Component: <Notification /> },
+        { path: `${process.env.PUBLIC_URL}/notification/add-edit`, Component: <NotificationAddEdit /> },
+
+        // Transaction
+        { path: `${process.env.PUBLIC_URL}/transactions/`, Component: <Transaction /> },
+
+        // User Setting
+        { path: `${process.env.PUBLIC_URL}/user/payments/`, Component: <UserPayment /> },
+        { path: `${process.env.PUBLIC_URL}/user/settings/`, Component: <UserSetting /> },
+
+        // User Setting
+        { path: `${process.env.PUBLIC_URL}/offers/`, Component: <Offer /> },
+        // { path: `${process.env.PUBLIC_URL}/user/settings/`, Component: <UserSetting /> },
 
         //widgets
         // { path: `${process.env.PUBLIC_URL}/widgets/general/`, Component: <General /> },

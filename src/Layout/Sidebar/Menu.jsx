@@ -69,7 +69,7 @@ export const MENUITEMS = [
             {
                 title: 'Transaction', icon: DollarSign, type: 'sub', active: false, children: [
                     { path: `${process.env.PUBLIC_URL}/transactions`, type: 'link', title: 'Transaction List' },
-                    { path: `${process.env.PUBLIC_URL}/transaction/add-edit`, type: 'link', title: 'Offer Transaction' }
+                    // { path: `${process.env.PUBLIC_URL}/transaction/add-edit`, type: 'link', title: 'Offer Transaction' }
                 ]
             },
             {

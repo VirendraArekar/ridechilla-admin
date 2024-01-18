@@ -13,20 +13,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCitiesByState, getCountries, getStatesByCountry } from '../../redux/features/countrySlice';
 import Select from 'react-select';
 import { P } from '../../AbstractElements';
-import { createLive, getLive, updateLive } from '../../redux/features/liveSlice';
+import { createNotification, getNotification, updateNotification } from '../../redux/features/notificationSlice';
 import { getUsers } from '../../redux/features/userSlice';
 import { formatPostDate } from '../../utility/helper';
 
 export default function add() {
   const location = useLocation();
-  const event  = useSelector((state) => ({ ...state.events.event }));
+  const notification  = useSelector((state) => ({ ...state.notifications.notification }));
   const users  = useSelector((state) => ({ ...state.users.users }));
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
-     if(location?.state?.liveId){
-        dispatch(getLive(location?.state?.liveId))
+     if(location?.state?.noteId){
+        dispatch(getNotification(location?.state?.noteId))
      }
      dispatch(getUsers())
   },[])
@@ -36,51 +36,55 @@ export default function add() {
         title : '',
         value : ''
     },
-    // customers : '',
-    joiningTime : new Date(),
-    leaveTime : new Date(),
+    notification : '',
+    priority : {label : 'Low', value : 1},
+    readIt : false,
   })
 
  useEffect(() => {
-    if(event?.data?.joiningTime){
-        let updateUse = {label : event?.data?.user?.name ?? '' , value : event?.data?.user?.id ?? ''} ?? ''
+    if(notification?.data?.notification){
+        let updateUse = {label : notification?.data?.user?.name ?? '' , value : notification?.data?.user?.id ?? ''} ?? ''
         setData((prevState) => ({
             ...prevState,
             user: updateUse,
-            joiningTime : new Date(users?.results?.joiningTime) ?? '',
-            leaveTime : users?.results?.joiningTime ?  new Date(users?.results?.joiningTime) : '',
+            notification : notification?.data?.notification ?? '',
+            priority : notification?.data?.priority ?? 1,
+            readIt : notification?.data?.readId ?? false,
          }));
     }
- },[event?.data])
+ },[notification?.data])
 
  const [dataError, setDataError] = useState({
     user : '',
-    joiningTime : '',
-    leaveTime : '',
+    notification : '',
+    priority : '',
+    readIt : '',
  })
 
  const onSubmit = (e) => {
     e.preventDefault();
     setDataError({
         user : '',
-        joiningTime : '',
-        leaveTime : '',
+        notification : '',
+        priority : '',
+        readIt : '',
     })
 
     var errors = {
         user : '',
-        joiningTime : '',
-        leaveTime : '',
+        notification : '',
+        priority : '',
+        readIt : '',
     }
 
     let finalError = false
 
-    if(!validation('User', data.user?.value, 'required')?.valid){
-        errors.user = validation('User', data.user?.value, 'required')?.error;
+    if(!validation('User', data.user.value, 'required')?.valid){
+        errors.user = validation('User', data.user.value, 'required')?.error;
         finalError = true
     }
-    if(!validation('joiningTime', data.name, 'Joining Time')?.valid){
-        errors.name = validation('joiningTime', data.name, 'Joining Time')?.error;
+    if(!validation('Notification', data.notification, 'required')?.valid){
+        errors.notification = validation('Notification', data.notification, 'required')?.error;
         finalError = true
     }
     
@@ -88,30 +92,20 @@ export default function add() {
 
     if(!finalError){
         let finalData = {
+            ...data,
             user : data.user.value,
-            joiningTime : formatFinalDate(data.joiningTime)
+            priority : data.priority.value
         }
 
-        if(data.leaveTime){
-            finalData.leaveTime = formatFinalDate(data.leaveTime);
-        }
-
-        if(location?.state?.liveId){
-            dispatch(updateLive({id: location?.state?.liveId, updatedData: finalData, toast, navigate}))
+        if(location?.state?.noteId){
+            dispatch(updateNotification({id: location?.state?.noteId, updatedData: finalData, toast, navigate}))
         }
         else{
-            dispatch(createLive({data: finalData, navigate, toast }))
+            dispatch(createNotification({data: finalData, navigate, toast }))
         }
     }
  }
 
-
- const setTime = (name,time) => {
-   setData((prevState) => ({
-      ...prevState,
-      [name]: time,
-   }));
- }
 
  const renderUsers = () => {
     let finalUsers = [];
@@ -122,16 +116,40 @@ export default function add() {
     return finalUsers;
 }
 
+
+const priorityOptions = [
+    {
+        'label' : 'Low',
+        'value' : 1
+    },
+    {
+        'label' : 'Medium',
+        'value' : 2
+    },
+    {
+        'label' : 'High',
+        'value' : 3
+    }
+]
+
+const changeInput = (name , value) => {
+    setData((prevState) => ({
+        ...prevState,
+        [name]: value,
+     }));
+ }
+
   return (
     <Fragment>
         <div className="margin-card"></div>
             <Card>
-                <HeaderCard title={`Add Live Consultation`} />
+                <HeaderCard title={`Add Notification`} />
                 <Form className="form theme-form" onSubmit={onSubmit} autoComplete="off">
                     <CardBody>
                         <Row>
+                            {console.log('DATA ----------------------', data)}
                             <Col>
-                            <FormGroup>
+                                <FormGroup>
                                     <Label htmlFor="exampleFormControlSelect7">{'User'}</Label>
                                     <Select
                                         className="basic-single"
@@ -152,55 +170,51 @@ export default function add() {
                                         options={renderUsers() ?? []}
                                     />
                                     {
-                                        dataError.country != '' &&
+                                        dataError.user != '' &&
                                         <span className='text-danger pl-3' style={{fontSize : 12 , marginLeft : 10}}>
-                                            {dataError.country}
+                                            {dataError.user}
+                                        </span>
+                                    }
+                                </FormGroup>
+                            </Col>
+                            
+                            <Col>
+                            <FormGroup>
+                                    <Label htmlFor="exampleFormControlSelect7">{'Priority'}</Label>
+                                    <Select
+                                        className="basic-single"
+                                        classNamePrefix="select"
+                                        defaultValue={data.priority}
+                                        isDisabled={false}
+                                        isLoading={false}
+                                        isClearable={true}
+                                        isRtl={false}
+                                        isSearchable={true}
+                                        name="priority"
+                                        onChange={(selectedOption) => {
+                                            setData((prevState) => ({
+                                                ...prevState,
+                                                priority: selectedOption,
+                                             }));
+                                        }} 
+                                        options={priorityOptions ?? []}
+                                    />
+                                    {
+                                        dataError.priority != '' &&
+                                        <span className='text-danger pl-3' style={{fontSize : 12 , marginLeft : 10}}>
+                                            {dataError.priority}
                                         </span>
                                     }
                                 </FormGroup>
                             </Col>
                             <Col>
-                                <FormGroup>
-                                    <Label htmlFor="exampleFormControlInput6">{'Start Time'}</Label>
-                                    <br></br>
-                                    <DatePicker 
-                                    className="w-100 form-control digits" 
-                                    name='eventStartTime'  
-                                    selected={data.joiningTime} 
-                                    onChange={(time) => setTime('joiningTime', time)} 
-                                    showTimeSelect
-                                    showTimeSelectOnly
-                                    timeIntervals={15}
-                                    timeCaption="Time"
-                                    dateFormat="h:mm aa"/>
-                                    <br></br>
+                               <FormGroup>
+                                    <Label htmlFor="exampleFormControlInput23">{'Notification'}</Label>
+                                    <Input className="form-control" type="textarea" name="notification" placeholder="Enter notification text" onChange={(e) => changeInput(e.target.name, e.target.value)} value={data.notification}/>
                                     {
-                                        dataError.joiningTime != '' &&
+                                        dataError.notification != '' &&
                                         <span className='text-danger pl-3' style={{fontSize : 12 , marginLeft : 10}}>
-                                            {dataError.joiningTime}
-                                        </span>
-                                    }
-                                </FormGroup>
-                            </Col>
-                            <Col>
-                                <FormGroup>
-                                    <Label htmlFor="exampleFormControlInput6">{'End Time'}</Label>
-                                    <br></br>
-                                    <DatePicker 
-                                    className="w-100 form-control digits" 
-                                    name='eventEndTime'  
-                                    selected={data.leaveTime} 
-                                    onChange={(time) => setTime('leaveTime', time)} 
-                                    showTimeSelect
-                                    showTimeSelectOnly
-                                    timeIntervals={15}
-                                    timeCaption="Time"
-                                    dateFormat="h:mm aa"/>
-                                    <br></br>
-                                    {
-                                        dataError.leaveTime != '' &&
-                                        <span className='text-danger pl-3' style={{fontSize : 12 , marginLeft : 10}}>
-                                            {dataError.leaveTime}
+                                            {dataError.notification}
                                         </span>
                                     }
                                 </FormGroup>

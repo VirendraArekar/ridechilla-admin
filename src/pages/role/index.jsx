@@ -98,7 +98,7 @@ const Role = (props) => {
 
     useEffect(() => {
           getAllRoles()
-        },[props])
+    },[props])
 
 
     const addRoleClick = () => {

@@ -1,20 +1,20 @@
 import { Fragment, useEffect, useState } from "react";
-import DataTableComponent from "../../Components/Tables/DataTable/DataTableComponent";
-import { Breadcrumbs, Btn } from "../../AbstractElements";
+import DataTableComponent from "../../../Components/Tables/DataTable/DataTableComponent";
+import { Breadcrumbs, Btn } from "../../../AbstractElements";
 import {Container, Row, Col, CardBody, Card, Button} from 'reactstrap'
-import HeaderCard from "../../Components/Common/Component/HeaderCard";
+import HeaderCard from "../../../Components/Common/Component/HeaderCard";
 import { useDispatch, useSelector } from "react-redux";
-import { getTransactions, deleteTransactions } from "../../redux/features/transactionSlice";
+import { getUserPayments, deleteUserPayments } from "../../../redux/features/userPaymentSlice";
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { FaPencilAlt, FaTrashAlt } from "react-icons/fa";
-import SmallButton from '../../CommonElements/Button/small';
-import Modal from '../../CommonElements/Modal'
-import { formatAMPM, formatGetDate } from "../../utility/helper";
+import SmallButton from '../../../CommonElements/Button/small';
+import Modal from '../../../CommonElements/Modal'
+import { formatAMPM, formatGetDate } from "../../../utility/helper";
 
-const Transaction = (props) => {
-    const  transactions  = useSelector((state) => ({ ...state.transactions }));
-    const  transaction  = useSelector((state) => ({ ...state.transaction }));
+const UserPayment = (props) => {
+    const  userPayments  = useSelector((state) => ({ ...state.userPayments }));
+    const  userPayment  = useSelector((state) => ({ ...state.userPayment }));
     const dispatch = useDispatch();
     const [page, setPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
@@ -22,15 +22,15 @@ const Transaction = (props) => {
     const [open, setOpen] = useState(false);
     const [id, setId] = useState(0)
 
-    const editTransaction = (id) => {
-        navigate(`${process.env.PUBLIC_URL}/transactions/add-edit`, {state : {transId : id}});
+    const editUserPayment = (id) => {
+        navigate(`${process.env.PUBLIC_URL}/user/payments/add-edit`, {state : {payId : id}});
     }
 
-    const deleteTransaction = (id) => {
+    const deleteUserPayment = (id) => {
         setOpen(false)
         let ids = [id];
-        dispatch(deleteTransactions({ids, toast}))
-        getAllTransactions()
+        dispatch(deleteUserPayments({ids, toast}))
+        getAllUserPayments()
     }
 
 
@@ -86,55 +86,54 @@ const Transaction = (props) => {
 
     const onPageChange = (page, totalRows) =>{
        setPage(page)
-       getAllTransactions(page, null)
+       getAllUserPayments(page, null)
     }
 
     const onPerPageChange = (currentRowsPerPage, currentPage) => {
        setPerPage(currentRowsPerPage)
-       getAllTransactions(null,currentRowsPerPage)
+       getAllUserPayments(null,currentRowsPerPage)
     }
 
-    const getAllTransactions = (myPage = null , myPerPage = null) => {
+    const getAllUserPayments = (myPage = null , myPerPage = null) => {
         let str =`?page=${myPage ?? page}&limit=${myPerPage ?? perPage}`
-        dispatch(getTransactions(str));
+        dispatch(getUserPayments(str));
     }
 
-    const onDeleteRow = async(transactions) => {
+    const onDeleteRow = async(payments) => {
         let ids = [];
-        for(let i = 0 ; i < transactions.length; i++){
-            ids.push(transactions[i].id)
+        for(let i = 0 ; i < payments.length; i++){
+            ids.push(payments[i].id)
         }
-        dispatch(deleteTransactions({ids, toast}))
-        getAllTransactions()
+        dispatch(deleteUserPayments({ids, toast}))
+        getAllUserPayments()
     }
 
     useEffect(() => {
-      getAllTransactions()
+      getAllUserPayments()
         },[props])
 
 
     const addEventClick = () => {
-        navigate(`${process.env.PUBLIC_URL}/transactions/add-edit`);
+        navigate(`${process.env.PUBLIC_URL}/user/payments/add-edit`);
     }
     return(
         <Fragment>
-            {console.log(transactions, transaction)}
-            <Breadcrumbs parent="Transaction" title="Transaction List" mainTitle="Transaction List" />
+            <Breadcrumbs parent="User" title="Payment List" mainTitle="Payment List" />
             <Container fluid={true}>
                 <Row>
                 <Col sm="12">
                     <Card>
                     {/* <HeaderCard title="Select Multiple or Delete Single Data" btn="Transaction" btnOnclick={addEventClick}/> */}
                     <CardBody className='data-tables'>
-                        <DataTableComponent columns={columns} data={transactions?.transactions?.results ?? []} onPageChange={onPageChange} onPerPageChange={onPerPageChange} onDeleteRow={onDeleteRow}/>
+                        <DataTableComponent columns={columns} data={userPayments?.userPayments?.results ?? []} onPageChange={onPageChange} onPerPageChange={onPerPageChange} onDeleteRow={onDeleteRow}/>
                     </CardBody>
                     </Card>
                 </Col>
                 </Row>
-                <Modal open={open} setOpen={(val) => setOpen(val)} title={'Delete Transaction'} subTitle={'Do you really wants to delete this transaction'} onClick={(id) => deleteLive(id)} id={id}/>
+                <Modal open={open} setOpen={(val) => setOpen(val)} title={'Delete Transaction'} subTitle={'Do you really wants to delete this transaction'} onClick={(id) => deleteUserPayment(id)} id={id}/>
             </Container>
       </Fragment>
     )
 }
 
-export default Transaction;
+export default UserPayment;
