@@ -12,12 +12,11 @@ export const createUser = createAsyncThunk(
       //     "Content-Type": "multipart/form-data",
       //   }
       // });
-      const response = await axios.post("http://localhost/api/v1/users", data, {headers: {
+      const response = await axios.post("http://195.35.7.26:8080/api/v1/users", data, {headers: {
         'content-type': 'application/x-www-form-urlencoded',
         'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`
       }}) 
       // const response = await API.post("/users", data, {headers: {'content-type': 'application/x-www-form-urlencoded'}});
-      console.log('RESPONSE ----------------------------------------', response)
       toast.success("Added Successfully");
       navigate("/users");
       return response.data;
