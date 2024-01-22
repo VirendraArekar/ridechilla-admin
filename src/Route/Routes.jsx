@@ -197,6 +197,16 @@ import Transaction from '../pages/transactions';
 import UserSetting from '../pages/user/setting';
 import UserPayment from '../pages/user/payment';
 import Offer from '../pages/offer';
+import OfferAddEdit from '../pages/offer/add';
+import Plan from '../pages/plan';
+import PlanAddEdit from '../pages/plan/add';
+import Support from '../pages/support';
+import SupportAddEdit from '../pages/support/add';
+import Setting from '../pages/setting';
+import EmailSetting from '../pages/setting/email';
+import PaymentSetting from '../pages/setting/payment';
+import FcmSetting from '../pages/setting/fcm';
+import PageSetting from '../pages/setting/page';
 
 export const routes = [
         //dashboard
@@ -237,8 +247,23 @@ export const routes = [
 
         // User Setting
         { path: `${process.env.PUBLIC_URL}/offers/`, Component: <Offer /> },
-        // { path: `${process.env.PUBLIC_URL}/user/settings/`, Component: <UserSetting /> },
+        { path: `${process.env.PUBLIC_URL}/offer/add-edit`, Component: <OfferAddEdit /> },
 
+        // plans
+        { path: `${process.env.PUBLIC_URL}/plans/`, Component: <Plan /> },
+        { path: `${process.env.PUBLIC_URL}/plan/add-edit`, Component: <PlanAddEdit /> },
+
+         // support
+         { path: `${process.env.PUBLIC_URL}/supports/`, Component: <Support /> },
+         { path: `${process.env.PUBLIC_URL}/support/add-edit`, Component: <SupportAddEdit /> },
+ 
+
+
+        { path: `${process.env.PUBLIC_URL}/settings/`, Component: <Setting /> },
+        { path: `${process.env.PUBLIC_URL}/setting/email`, Component: <EmailSetting /> },
+        { path: `${process.env.PUBLIC_URL}/setting/payment`, Component: <PaymentSetting /> },
+        { path: `${process.env.PUBLIC_URL}/setting/fcm`, Component: <FcmSetting /> },
+        { path: `${process.env.PUBLIC_URL}/setting/page`, Component: <PageSetting /> },
         //widgets
         // { path: `${process.env.PUBLIC_URL}/widgets/general/`, Component: <General /> },
         // { path: `${process.env.PUBLIC_URL}/widgets/chart/`, Component: <Chart /> },

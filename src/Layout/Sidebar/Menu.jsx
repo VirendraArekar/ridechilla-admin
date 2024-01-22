@@ -81,19 +81,19 @@ export const MENUITEMS = [
             {
                 title: 'Offer', icon: Gift, type: 'sub', active: false, children: [
                     { path: `${process.env.PUBLIC_URL}/offers`, type: 'link', title: 'Offer List' },
-                    { path: `${process.env.PUBLIC_URL}/offer/add-edit`, type: 'link', title: 'Offer Event' }
+                    { path: `${process.env.PUBLIC_URL}/offer/add-edit`, type: 'link', title: 'Add Offer' }
                 ]
             },
             {
                 title: 'Plan', icon: Briefcase, type: 'sub', active: false, children: [
                     { path: `${process.env.PUBLIC_URL}/plans`, type: 'link', title: 'Plan List' },
-                    { path: `${process.env.PUBLIC_URL}/plan/add-edit`, type: 'link', title: 'Plan Event' }
+                    { path: `${process.env.PUBLIC_URL}/plan/add-edit`, type: 'link', title: 'Add Plan' }
                 ]
             },
             {
                 title: 'Support', icon: Users, type: 'sub', active: false, children: [
                     { path: `${process.env.PUBLIC_URL}/supports`, type: 'link', title: 'Support List' },
-                    { path: `${process.env.PUBLIC_URL}/support/add-edit`, type: 'link', title: 'Support Event' }
+                    { path: `${process.env.PUBLIC_URL}/support/add-edit`, type: 'link', title: 'Add Support' }
                 ]
             },
             {
@@ -102,7 +102,6 @@ export const MENUITEMS = [
                     { path: `${process.env.PUBLIC_URL}/setting/email`, type: 'link', title: 'Email  Setting' },
                     { path: `${process.env.PUBLIC_URL}/setting/payment`, type: 'link', title: 'Payment Setting' },
                     { path: `${process.env.PUBLIC_URL}/setting/fcm`, type: 'link', title: 'Fcm Setting' },
-                    { path: `${process.env.PUBLIC_URL}/setting/user`, type: 'link', title: 'Payment Setting' },
                     { path: `${process.env.PUBLIC_URL}/setting/page`, type: 'link', title: 'Page Setting' },
                 ]
             },

@@ -10,7 +10,14 @@ import NotificationReducer from "./features/notificationSlice";
 import TransactionReducer from "./features/transactionSlice";
 import UserPaymentReducer from "./features/userPaymentSlice";
 import UserSettingReducer from "./features/userSettingSlice";
-import { Users } from "react-feather";
+import offerReducer from "./features/offerSlice";
+import planReducer from "./features/planSlice";
+import supportReducer from "./features/supportSlice";
+import settingReducer from "./features/settingSlice";
+import emailSettingReducer from "./features/emailSettingSlice";
+import paymentSettingReducer from "./features/paymentSettingSlice";
+import fcmSettingReducer from "./features/fcmSettingSlice";
+import pageReducer from "./features/pageSlice";
 
 export default configureStore({
   reducer: {
@@ -23,7 +30,15 @@ export default configureStore({
     transactions: TransactionReducer,
     userPayments: UserPaymentReducer,
     userSettings: UserSettingReducer,
+    offers: offerReducer,
+    plans: planReducer,
+    supports: supportReducer,
+    countries: CountryReducer,
+    settings: settingReducer,
+    emailSettings: emailSettingReducer,
+    paymentSettings: paymentSettingReducer,
+    fcmSettings: fcmSettingReducer,
+    pages: pageReducer,
     //  auth : AuthReducer,
-    countries: CountryReducer
   },
 });
